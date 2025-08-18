@@ -1,12 +1,12 @@
 // src/components/DashboardProdutos.tsx
-import React, { useState, useEffect } from "react";
-import { useLogicaProdutos } from "../hooks/useProdutos";
+import React, { useState, useEffect, use } from "react";
+import {useProdutos } from "../hooks/useProdutos";
 import { Produto } from "../db/produtos";
 
 type FormState = Omit<Produto, "id"> & { id?: number };
 
 export default function DashboardProdutos() {
-  const { produtos, criarProduto, editarProduto, removerProduto } = useLogicaProdutos();
+  const { produtos, addProduct,deleteProduct,updateProduct } = useProdutos();
 
   const [form, setForm] = useState<FormState>({ nome: "", descricao: "", preco: 0, imagem: "" });
   const [editandoId, setEditandoId] = useState<number | null>(null);
@@ -24,9 +24,9 @@ export default function DashboardProdutos() {
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (editandoId != null) {
-      editarProduto(form as Produto);
+       updateProduct(form as Produto);
     } else {
-      criarProduto(form);
+      addProduct(form);
     }
     setEditandoId(null);
   };
@@ -116,7 +116,7 @@ export default function DashboardProdutos() {
                   Editar
                 </button>
                 <button
-                  onClick={() => removerProduto(p.id)}
+                  onClick={() => deleteProduct(p.id)}
                   className="px-2 py-1 bg-red-500 text-white rounded hover:bg-red-600"
                 >
                   Excluir

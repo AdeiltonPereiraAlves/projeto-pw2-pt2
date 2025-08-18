@@ -4,7 +4,7 @@
   "main": "dist/app.js",
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node-dev --respawn --transpile-only src/app.ts",
+    "dev": "ts-node-dev --respawn --transpile-only app/app.ts",
     "build": "tsc",
     "start": "node dist/app.js",
     "prisma:generate": "npx prisma generate",

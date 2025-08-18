@@ -9,6 +9,7 @@ export default function ListaProdutos() {
 
   useEffect(() => {
     setLista(produtos);
+    console.log("Lista de produtos atualizada:", produtos);
   }, [produtos]);
 
   return (
@@ -23,7 +24,7 @@ export default function ListaProdutos() {
             <Card key={produto.id} produto={produto} />
           ))}
         </div>
-      )}
+       )}
     </div>
   );
 }
