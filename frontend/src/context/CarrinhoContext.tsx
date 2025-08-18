@@ -1,44 +1,45 @@
-import { createContext, useContext, useState, ReactNode } from "react";
-import { Produto, produtos } from "../db/produtos";
 
-export interface ItemCarrinho {
-  produto: Produto;
-  quantidade: number;
-}
+// import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-interface CarrinhoContextType {
-  aberto: boolean;
-  abrirCarrinho: () => void;
-  fecharCarrinho: () => void;
-  items: ItemCarrinho[];
-  produtos: Produto[];
-  setItems: React.Dispatch<React.SetStateAction<ItemCarrinho[]>>;
-}
+// export interface Produto {
+//   id: number;
+//   nome: string;
+//   preco: number;
+//   quantidade: number;
+// }
 
-const CarrinhoContext = createContext<CarrinhoContextType | undefined>(undefined);
+// interface CarrinhoState {
+//   itens: Produto[];
+// }
 
-export const CarrinhoProvider = ({ children }: { children: ReactNode }) => {
-  const [aberto, setAberto] = useState(false);
-  const [items, setItems] = useState<ItemCarrinho[]>([]);
+// const initialState: CarrinhoState = {
+//   itens: [],
+// };
 
-  return (
-    <CarrinhoContext.Provider
-      value={{
-        aberto,
-        abrirCarrinho: () => setAberto(true),
-        fecharCarrinho: () => setAberto(false),
-        items,
-        setItems,
-        produtos
-      }}
-    >
-      {children}
-    </CarrinhoContext.Provider>
-  );
-};
+// const carrinhoSlice = createSlice({
+//   name: "carrinho",
+//   initialState,
+//   reducers: {
+//     adicionarAoCarrinho: (state, action: PayloadAction<Produto>) => {
+//       const produtoExistente = state.itens.find(
+//         (item) => item.id === action.payload.id
+//       );
 
-export const useCarrinho = () => {
-  const context = useContext(CarrinhoContext);
-  if (!context) throw new Error("useCarrinho deve ser usado dentro de CarrinhoProvider");
-  return context;
-};
+//       if (produtoExistente) {
+//         produtoExistente.quantidade += action.payload.quantidade;
+//       } else {
+//         state.itens.push(action.payload);
+//       }
+//     },
+//     removerDoCarrinho: (state, action: PayloadAction<number>) => {
+//       state.itens = state.itens.filter((item) => item.id !== action.payload);
+//     },
+//     limparCarrinho: (state) => {
+//       state.itens = [];
+//     },
+//   },
+// });
+
+// export const { adicionarAoCarrinho, removerDoCarrinho, limparCarrinho } =
+//   carrinhoSlice.actions;
+// export default carrinhoSlice.reducer;
