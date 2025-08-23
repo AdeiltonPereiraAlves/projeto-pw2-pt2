@@ -1,20 +1,21 @@
-// {
-//   "files": [],
-//   "references": [
-//     { "path": "./tsconfig.app.json" },
-//     { "path": "./tsconfig.node.json" }
-//   ]
-// }
 {
   "compilerOptions": {
-    "target": "ES6",
-    "lib": ["es6", "dom"],
-    "module": "commonjs",
-    "strict": true,
-    "esModuleInterop": true,
+    "target": "ESNext",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
     "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "types": ["cypress", "node"]
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "types": ["jest", "@testing-library/jest-dom"]
   },
-  "include": ["cypress/**/*.ts", "cypress/cypress.config.js"]
+  "include": ["src", "src/**/*.test.tsx", "src/**/*.d.ts","cypress/**/*.ts", "cypress/**/*.cy.ts"],
+  "exclude": ["node_modules", "cypress"]
 }
