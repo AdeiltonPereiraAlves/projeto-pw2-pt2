@@ -1,3 +1,5 @@
+import { beforeEach, describe, it } from "vitest";
+import {} from "cypress"
 describe("Formulário de Contato", () => {
   beforeEach(() => {
     cy.visit("/contato"); // ou "/" se o componente Contato estiver na rota raiz
