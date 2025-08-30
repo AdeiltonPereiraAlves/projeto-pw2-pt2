@@ -1,5 +1,7 @@
 # Projeto PW2 - PT2
 
+Equipe: Adeilton pereira alves,
+        Felipe Lira de Oliveira 
 Este é um projeto fullstack com **frontend** em React e **backend** em Express + TypeScript + Prisma + SQLite.
 
 ---
