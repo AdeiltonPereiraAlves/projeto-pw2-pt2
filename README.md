@@ -40,7 +40,9 @@ Certifique-se de ter instalado:
 ### 1. Clonar o repositório
 
 
-git clone <URL_DO_REPOSITORIO>
+git clone https://github.com/AdeiltonPereiraAlves/projeto-pw2-pt2
+
+
 cd projeto-pw2-pt2
 
 
